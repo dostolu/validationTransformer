@@ -1,7 +1,7 @@
 {
   "name": "@dostolu/validationTransformer",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.0.2",
+  "description": "Transform Error to JSend data",
   "main": "src/index.js",
   "scripts": {
     "test": "npm run test:app && npm run test:eslint",
