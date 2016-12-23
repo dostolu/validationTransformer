@@ -1,6 +1,6 @@
 {
   "name": "@dostolu/validationTransformer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Transform Error to JSend data",
   "main": "src/index.js",
   "scripts": {
@@ -8,6 +8,9 @@
     "test:eslint": "eslint .",
     "test:app": "mocha tests/index.spec.js",
     "postpublish": "greenkeeper-postpublish"
+  },
+  "engines": {
+    "node": ">= 6.9.2"
   },
   "repository": {
     "type": "git",
