@@ -18,8 +18,7 @@ jobs:
       - deploy:
           name: Publish to NPM
           command: |
-            chvt 1
-            echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
             npm publish
 workflows:
   version: 2
