@@ -12,6 +12,9 @@ const validationTransformer = err => {
     return data;
   }
   data.message = err.message;
+  if (err.name && err.name !== 'undefined') {
+    data.message += ` ${err.name}`;
+  }
   return data;
 };
 

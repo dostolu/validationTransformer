@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/svc
+    docker:
+      - image: circleci/node:8.9.1
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn test
+  deploy:
+    working_directory: ~/svc
+    docker:
+      - image: circleci/node:8.9.1
+    steps:
+      - checkout
+      - run: yarn
+      - deploy:
+          name: Publish to NPM
+          command: |
+            echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+            npm publish
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build

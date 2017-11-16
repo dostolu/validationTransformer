@@ -29,6 +29,15 @@ const result2 = {
   message: fixture2.message
 };
 
+const fixture3 = {
+  message: 'One',
+  name: 'Two',
+  data: 'Three'
+};
+const result3 = {
+  message: `${fixture3.message} ${fixture3.name}`
+};
+
 describe('validationTransformer', () => {
   it('should transform sub errors without main message', () => {
     const res = validationTransformer(fixture1);
@@ -37,5 +46,9 @@ describe('validationTransformer', () => {
   it('should return transform only main message', () => {
     const res = validationTransformer(fixture2);
     expect(res).to.be.deep.equal(result2);
+  });
+  it('should add name', () => {
+    const res = validationTransformer(fixture3);
+    expect(res).to.be.deep.equal(result3);
   });
 });
