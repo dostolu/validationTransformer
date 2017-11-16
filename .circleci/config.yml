@@ -18,7 +18,7 @@ jobs:
       - deploy:
           name: Publish to NPM
           command: |
-            export TERM=xterm
+            chvt 1
             echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
             npm publish
 workflows:
